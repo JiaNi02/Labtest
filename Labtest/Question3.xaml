@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Labtest.Question3"
+             Title=""
+             Shell.NavBarIsVisible="True"
+             Shell.TabBarBackgroundColor="blue">
+    <ScrollView>
+        <StackLayout>
+            <Button Text="Add" Clicked="OnAddButtonClicked" FontSize="Small" WidthRequest="100" HorizontalOptions="End" />
+            <StackLayout Padding="20">
+                <CollectionView x:Name="PostCollectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="Black" Margin="5" Padding="10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding Title}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Body}" Grid.Row="1" />
+                                    <Button Text="Delete" Clicked="OnDeleteButtonClicked" CommandParameter="{Binding .}" Grid.Row="2" WidthRequest="100" HeightRequest="50" HorizontalOptions="End"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
